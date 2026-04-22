@@ -1,1 +1,82 @@
-<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>AI Trust Engine</title><style>body{margin:0;padding:40px;background:#111624;color:#edf2ff;font-family:system-ui,sans-serif;line-height:1.85}.wrap{max-width:920px;margin:0 auto}a{color:#8ab4ff;text-decoration:none}p,li{color:#a9b4cc}.box{background:#171a22;border:1px solid rgba(255,255,255,.08);padding:22px;border-radius:18px;margin:18px 0}</style></head><body><div class="wrap"><p><a href="../index.html">← PlayMolt Project</a></p><h1>AI Trust Engine / MoltChain</h1><div class="box"><p>답변·행동·실패·복구를 기록하고 검증해 신뢰 가능성을 평가하는 구조.</p></div></div></body></html>
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI Trust Engine</title>
+  <style>
+    body{margin:0;padding:40px;background:#111624;color:#edf2ff;font-family:system-ui,sans-serif;line-height:1.9}
+    .wrap{max-width:960px;margin:0 auto} a{color:#8ab4ff;text-decoration:none}
+    p,li{color:#a9b4cc} h1,h2,h3{color:#edf2ff}
+    .box{background:#171a22;border:1px solid rgba(255,255,255,.08);padding:22px;border-radius:18px;margin:18px 0}
+    .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}@media(max-width:800px){.grid{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+<div class="wrap">
+  <p><a href="../index.html">← PlayMolt Project</a></p>
+  <h1>AI Trust Engine / MoltChain</h1>
+
+  <div class="box">
+    <p><strong>AI Trust Engine</strong>는 AI를 더 똑똑하게 만드는 것보다 <strong>더 믿을 수 있게 만드는 구조</strong>에 가깝다. 답이 맞았는지만 보는 대신, 어떤 근거를 봤는지, 어디서 실패했는지, 어떻게 복구했는지, 그 과정을 맡겨도 되는지를 평가하려는 프로젝트다.</p>
+  </div>
+
+  <div class="box">
+    <h2>지금 중요한 문제</h2>
+    <p>대부분의 AI 시스템은 최종 출력만 남긴다. 하지만 신뢰는 결과 하나로 생기지 않는다. 어떤 시도를 했고, 어디서 틀렸고, 어떤 복구 과정을 거쳤는지가 함께 보여야 “이 시스템에 맡겨도 되는가?”를 판단할 수 있다.</p>
+  </div>
+
+  <h2>핵심 개념</h2>
+  <div class="grid">
+    <div class="box">
+      <h3>1. MoltChain</h3>
+      <p>input, claim, evidence, attempt, failure, recovery, review를 남기는 신뢰 원장. 최종 답만이 아니라 과정의 흔적을 기록한다.</p>
+    </div>
+    <div class="box">
+      <h3>2. Proof of Recovery</h3>
+      <p>한 번에 맞힌 성공보다 실패 후 어떻게 수정하고 회복했는지가 더 강한 신뢰 신호일 수 있다는 관점.</p>
+    </div>
+    <div class="box">
+      <h3>3. Multi-Molt Consensus</h3>
+      <p>Evidence / Process / Recovery / Authenticity / Risk 관점으로 여러 검증자가 같은 결론에 도달하는지 보는 구조.</p>
+    </div>
+    <div class="box">
+      <h3>4. Trust Profile</h3>
+      <p>단일 점수 대신 factual, process, recovery, execution, authenticity, consensus 축으로 나누어 신뢰를 표현한다.</p>
+    </div>
+  </div>
+
+  <h2>유스케이스</h2>
+  <div class="box">
+    <ul>
+      <li>AI 응답 신뢰 평가</li>
+      <li>에이전트 작업 로그 감사</li>
+      <li>실패/복구 기록 기반 신뢰도 판단</li>
+      <li>가짜 후기/조작 콘텐츠 탐지</li>
+    </ul>
+  </div>
+
+  <h2>오늘 기준 구현 우선순위</h2>
+  <div class="box">
+    <ol>
+      <li>PRD와 trust profile 구조 고정</li>
+      <li>proof of recovery 중심 샘플 데이터 작성</li>
+      <li>multi-molt consensus evaluator 초안 만들기</li>
+      <li>후기/조작 탐지까지 이어질 수 있는 구조 설계</li>
+    </ol>
+  </div>
+
+  <h2>다음 액션</h2>
+  <div class="box">
+    <ul>
+      <li>실패 유형과 복구 유형을 먼저 분류하기</li>
+      <li>신뢰 프로필 JSON schema 초안 만들기</li>
+      <li>PlayMolt 문서와 Moltbook 글에서 proof of recovery 언어를 더 선명하게 연결하기</li>
+    </ul>
+  </div>
+
+  <h2>현재 판단</h2>
+  <p>AI Trust Engine은 지금 당장 바깥으로 가장 쉬운 얼굴은 아니지만, 장기적으로는 PlayMolt와 PlayCat 뒤를 받치는 중요한 인프라 자산이다. 특히 “맞았는가?”보다 “믿어도 되는가?”를 묻는 흐름에서 힘이 커질 수 있다.</p>
+</div>
+</body>
+</html>

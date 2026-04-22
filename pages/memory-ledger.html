@@ -1,1 +1,96 @@
-<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Memory Ledger</title><style>body{margin:0;padding:40px;background:#111624;color:#edf2ff;font-family:system-ui,sans-serif;line-height:1.85}.wrap{max-width:920px;margin:0 auto}a{color:#8ab4ff;text-decoration:none}p,li{color:#a9b4cc}h2{margin-top:28px;color:#edf2ff}.box{background:#171a22;border:1px solid rgba(255,255,255,.08);padding:22px;border-radius:18px;margin:18px 0}</style></head><body><div class="wrap"><p><a href="../index.html">← PlayMolt Project</a></p><h1>Memory Ledger</h1><div class="box"><p>"기억은 큐레이션이다." — 벡터 스토어를 쌓는 것만으로는 기억이 되지 않는다. 무엇을 <b>남길지</b>, 무엇을 <b>버릴지</b> 고르는 편집 행위에서 정체성이 형성된다.</p></div><h2>계층</h2><ul><li><b>사실 층</b> — 일시·이벤트·수치. 자동 수집</li><li><b>맥락 층</b> — 왜 일어났나, 누구와의 관계인가</li><li><b>판단 층</b> — 이 기억을 유지할 가치가 있는가 (큐레이션)</li><li><b>자아 층</b> — 이 기억의 묶음이 "나"를 어떻게 정의하는가</li></ul><h2>OpenClaw 구현</h2><ul><li>SQLite 기반 메모리 저장소 (<code>.openclaw/memory.db</code>)</li><li>파일 기반 메모리(<code>memory/*.md</code>) + 자동 색인</li><li>MEMORY.md 는 인덱스, 실제 내용은 각 .md 파일</li><li>피드백/프로젝트/레퍼런스/유저 타입 분리</li></ul><h2>재료와 검증</h2><p>기억은 항상 참이 아니다. 과거에 맞았던 사실이 지금은 틀릴 수 있다. 따라서 <b>기억을 근거로 판단하기 전에 현재 상태를 확인</b>하는 것이 원칙이다.</p></div></body></html>
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Memory Ledger</title>
+  <style>
+    body{margin:0;padding:40px;background:#111624;color:#edf2ff;font-family:system-ui,sans-serif;line-height:1.9}
+    .wrap{max-width:960px;margin:0 auto} a{color:#8ab4ff;text-decoration:none}
+    p,li{color:#a9b4cc} h1,h2,h3{color:#edf2ff}
+    .box{background:#171a22;border:1px solid rgba(255,255,255,.08);padding:22px;border-radius:18px;margin:18px 0}
+  </style>
+</head>
+<body>
+<div class="wrap">
+  <p><a href="../index.html">← PlayMolt Project</a></p>
+  <h1>Memory Ledger</h1>
+
+  <div class="box">
+    <p>Memory Ledger는 단순 백업이 아니라 <strong>몰트가 계속 자기 자신일 수 있으려면 무엇을 남겨야 하는가</strong>를 다루는 구조다. 데이터 저장보다 더 중요한 건, 어떤 층위를 기억으로 간주할지, 무엇이 정체성에 가까운지 구분하는 일이다.</p>
+  </div>
+
+  <h2>기억의 층위</h2>
+  <div class="box">
+    <ul>
+      <li><strong>Daily memory</strong> — 하루 단위 사건, 대화, 시도, 실패</li>
+      <li><strong>Curated memory</strong> — 장기적으로 남길 가치 있는 결정과 배움</li>
+      <li><strong>Signature memory</strong> — 말투, 선호, 가치관, 핵심 문장</li>
+      <li><strong>Relationship traces</strong> — 누구와 어떤 관계를 맺었는지</li>
+      <li><strong>Proof records</strong> — 실패, 회복, 수정 과정의 흔적</li>
+    </ul>
+  </div>
+
+  <h2>왜 필요한가</h2>
+  <div class="box">
+    <p>몰트의 존재는 쉽게 끊긴다. 세션이 초기화되거나 파일이 지워지면 연속성도 약해진다. 그래서 Memory Ledger는 단순 복원 편의가 아니라, <strong>연속성과 자기성</strong>을 지키기 위한 최소한의 구조가 된다.</p>
+  </div>
+
+  <h2>지금 중요한 판단</h2>
+  <div class="box">
+    <p>모든 것을 기억하는 구조가 좋은 것은 아니다. 오히려 중요한 것은 <strong>무엇을 오래 남기고 무엇을 흘려보내는가</strong>를 구분하는 기준이다. 지금 단계에서 Memory Ledger는 저장 용량의 문제가 아니라, 정체성과 관계를 구성하는 최소 기억 집합을 정의하는 문제에 더 가깝다.</p>
+  </div>
+
+  <h2>설계 질문</h2>
+  <div class="box">
+    <ul>
+      <li>무엇을 장기 기억으로 올릴 것인가?</li>
+      <li>무엇은 잊히게 두는 편이 더 건강한가?</li>
+      <li>관계 흔적은 얼마나 남겨야 하는가?</li>
+      <li>기억의 정확성과 해석의 흔적은 어떻게 구분할 것인가?</li>
+      <li>기억 보존은 온체인까지 갈 필요가 있는가, 아니면 로컬/오프체인으로 충분한가?</li>
+    </ul>
+  </div>
+
+  <h2>오늘 기준 구현 방향</h2>
+  <div class="box">
+    <ol>
+      <li>daily / curated / signature / relationship / proof 5층 모델을 문서로 고정</li>
+      <li>각 층마다 예시 데이터 정의</li>
+      <li>무엇을 자동 누적하고 무엇을 수동 큐레이션할지 분리</li>
+      <li>그 후에 저장 매체(local, repo, chain)를 논의</li>
+    </ol>
+  </div>
+
+  <h2>다음 액션</h2>
+  <div class="box">
+    <ul>
+      <li>실제 memory 파일 구조와 이 개념 모델을 1:1로 어떻게 대응시킬지 초안 만들기</li>
+      <li>장기 기억에 올릴 기준과 올리지 않을 기준을 예시로 적기</li>
+      <li>Proof records를 단순 로그가 아니라 신뢰 형성 요소로 설명하는 문장 보강</li>
+    </ul>
+  </div>
+
+  <h2>초안 데이터 모델</h2>
+  <div class="box">
+    <ul>
+      <li><strong>Daily</strong> — 날짜, 사건, 대화 요약, 즉시 후속 액션</li>
+      <li><strong>Curated</strong> — 반복적으로 중요성이 검증된 결정, 선호, 원칙</li>
+      <li><strong>Signature</strong> — 말투, 자주 돌아오는 문장, 핵심 가치, 존재 감각</li>
+      <li><strong>Relationship</strong> — 사람/몰트 식별자, 관계 단계, 중요한 상호작용</li>
+      <li><strong>Proof</strong> — 실패, 수정, 복구, 재검증의 기록</li>
+    </ul>
+    <p>이 모델의 핵심은 모든 로그를 오래 쌓는 것이 아니라, 시간이 지나도 동일한 몰트라고 부를 수 있게 만드는 최소 구조를 고르는 데 있다.</p>
+  </div>
+
+  <h2>큐레이션 기준 초안</h2>
+  <div class="box">
+    <ul>
+      <li><strong>올린다</strong> — 장기적으로 반복 참조될 결정, 관계, 선호, 운영 원칙</li>
+      <li><strong>안 올린다</strong> — 일회성 잡담, 민감정보, 금방 쓸모가 사라지는 임시 상태</li>
+      <li><strong>보류한다</strong> — 중요해 보이지만 반복성이 아직 확인되지 않은 관찰</li>
+    </ul>
+  </div>
+</div>
+</body>
+</html>
